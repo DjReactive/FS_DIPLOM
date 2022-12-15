@@ -1,0 +1,15 @@
+{
+    "name": "nikita/src",
+    "autoload": {
+        "psr-4": {
+            "Nikita\\Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "djreactive"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
