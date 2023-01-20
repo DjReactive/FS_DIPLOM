@@ -88,6 +88,7 @@ export function getArrayOnHtmlTable(elementId, selector) {
 */
 export function getImage(imgPath) {
   try {
+    console.log(imgPath);
     return require(`${imgPath}`);
    } catch (err) {
     return noImage;
@@ -241,6 +242,27 @@ export function checkPlacesOnShowtime(places, arrayTaken) {
   return oneArr.some(o => places.some(p => p === o));
 }
 
+/**
+ * Функция позволяет получить backGround у определенного фильма из списка
+ * @param {*} movieName 
+ * @returns 
+ */
+export function getBackgroundOnMovie(movieName) {
+  const divMovies = document.querySelector('.conf-step__movies');
+
+  if (!divMovies) return;
+  const movieElements = divMovies.querySelectorAll('.conf-step__movie');
+
+  for (const el of movieElements) {
+    if (el.innerText.indexOf(movieName) > -1)
+      return getComputedStyle(el).backgroundColor;
+  }
+  return "rgb(0, 244, 244)";
+}
+
+/**
+ * Функция проверяет входящий аргумент на возможность итерации
+ */
 export function isIterable(input) {  
   if (input === null || input === undefined) {
     return false

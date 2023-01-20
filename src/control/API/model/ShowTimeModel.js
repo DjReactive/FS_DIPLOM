@@ -4,23 +4,23 @@ export default class ShowTimeModel {
   constructor(obj) {
     this.url = `${obj.location}/showtime`;
   }
-  async add(data) {
+  async create(data) {
     return await
       Request.post(this.url, data);
   }
-  async remove(id) {
-    return await
-      Request.delete(`${this.url}/${id}`);
-  }
-  async update(id, data) {
-    return await
-      Request.update(`${this.url}/${id}`);
-  }
-  async get(id) {
+  async read(id) {
     return await
       Request.get(`${this.url}/${id}`);
   }
-  async getAll() {
+  async readAll() {
     return await Request.get(this.url);
+  }
+  async update(id, data) {
+    return await
+      Request.update(`${this.url}/${id}`, data);
+  }
+  async delete(id) {
+    return await
+      Request.delete(`${this.url}/${id}`);
   }
 }

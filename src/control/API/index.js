@@ -57,15 +57,15 @@ class API {
   // =============== Hall API =================
   Hall = {
     getall: () =>
-      this.store.hall.getting(this.HallModel.getAll(), this.errorFnc),
+      this.store.hall.getting(this.HallModel.readAll(), this.errorFnc),
 
     add: (data) =>
-      this.HallModel.add(data)
+      this.HallModel.create(data)
         .then(res =>
           this.responseAlert(res, `Зал ${data.name} был успешно добавлен`, this.Hall.getall)),
 
     remove: (id) =>
-      this.HallModel.remove(id)
+      this.HallModel.delete(id)
         .then(res =>
           this.responseAlert(res, `Зал #${id} был успешно удален`, this.Hall.getall)),
 
@@ -79,15 +79,19 @@ class API {
   // =============== Movies API =================
   Movies = {
     getall: () =>
-      this.store.movies.getting(this.MovieModel.getAll(), this.errorFnc),
+      this.store.movies.getting(this.MovieModel.readAll(), this.errorFnc),
       
-    add: (data) =>
-      this.MovieModel.add(data)
-        .then(res =>
-          this.responseAlert(res, `Фильм "${data.name}" был успешно добавлен`, this.Movies.getall)),
+    add: (data, file = null) =>
+      this.AuthModel.upload(file)
+        .then(res => {
+          if (res.error) return;
 
+          return this.MovieModel.create(data)
+            .then(res =>
+              this.responseAlert(res, `Фильм "${data.name}" был успешно добавлен`, this.Movies.getall));
+        }),
     remove: (id) =>
-      this.MovieModel.remove(id)
+      this.MovieModel.delete(id)
         .then(res =>
           this.responseAlert(res, `Фильм успешно удален`, this.Movies.getall)),
 
@@ -100,15 +104,15 @@ class API {
   // =============== ShowTimes API =================
   ShowTimes = {
     getall: () =>
-      this.store.showtime.getting(this.ShowTimeModel.getAll(), this.errorFnc),
+      this.store.showtime.getting(this.ShowTimeModel.readAll(), this.errorFnc),
       
     add: (data) =>
-      this.ShowTimeModel.add(data)
+      this.ShowTimeModel.create(data)
         .then(res =>
           this.responseAlert(res, `Сеанс был успешно добавлен`, this.ShowTimes.getall)),
 
     remove: (id) =>
-      this.ShowTimeModel.remove(id)
+      this.ShowTimeModel.delete(id)
         .then(res =>
           this.responseAlert(res, `Сеанс успешно удален`, this.ShowTimes.getall)),
   }
@@ -116,21 +120,21 @@ class API {
   // =============== ShowTimes API =================
   Tickets = {
     getAll: (data) =>
-      this.store.tickets.getting(this.TicketModel.getAll(data), this.errorFnc),
+      this.store.tickets.getting(this.TicketModel.readAll(data), this.errorFnc),
 
     get: (id) => 
-      this.store.tickets.getting(this.TicketModel.get(id), this.errorFnc),
+      this.store.tickets.getting(this.TicketModel.read(id), this.errorFnc),
 
     getQRCode: (id) => 
       this.store.tickets.getQRCode(this.TicketModel.getQR(id), this.errorFnc),
       
     add: (data) =>
-      this.TicketModel.add(data)
+      this.TicketModel.create(data)
         .then(res =>
           this.responseAlert(res, `Вы успешно приобрели билет(ы). Спасибо за покупку!`, this.TicketModel.getall)),
 
     remove: (id) =>
-      this.TicketModel.remove(id)
+      this.TicketModel.delete(id)
         .then(res =>
           this.responseAlert(res, `Сеанс успешно удален`, this.TicketModel.getall)),
   }

@@ -4,24 +4,28 @@ export default class MovieModel {
   constructor(obj) {
     this.url = `${obj.location}/movie`;
   }
-  async add(data) {
+  async create(data) {
     return await
       Request.post(this.url, data);
   }
-  async remove(id) {
+  async getPage(page) {
     return await
-      Request.delete(`${this.url}/${id}`);
+      Request.get(`${this.url}?page=${page}`);
+  }
+  async read(id) {
+    return await
+      Request.get(`${this.url}/${id}`);
+  }
+  async readAll() {
+    return await
+      Request.get(this.url);
   }
   async update(id, data) {
     return await
       Request.update(`${this.url}/${id}`, data);
   }
-  async get(id) {
+  async delete(id) {
     return await
-      Request.get(`${this.url}/${id}`);
-  }
-  async getAll() {
-    return await
-      Request.get(this.url);
+      Request.delete(`${this.url}/${id}`);
   }
 }

@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Дипломный проект по профессии «Веб-разработчик»
+FrontEnd часть проекта, где за основу был взят фреймворк ReactJS: несложный, удобный и понятный. Для развертывания данной части проекта потребуется следующее:
+- Node Package Manager (NPM)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Описание проекта
+Сайт кинотеатра с административной частью, без регистрации и возможностью бронировать билеты на сеансы.
 
-## Available Scripts
+## BackEnd
 
-In the project directory, you can run:
+Необходимая часть проекта при развертывании FrontEnd. По ссылке вы можете пройти во  [BackEnd] данного проекта. В качестве BackEnd был взят за основу фреймворк Laravel, взаимодействующий с данной частью проекта с помощью RestAPI.
 
-### `npm start`
+## Зависимости
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+В проекте для backend были использованы следующие зависимости:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [ReactJS] - Прекрасный фреймворк для Javascript
+- [MobX] - Библиотека, заменяющая React Redux
 
-### `npm test`
+## Установка
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Перед выполнением установки проекта вам потребуется скачать и установить NPM (Node Package Manager).
 
-### `npm run build`
+1. После установки NPM, перейдите в папку с FrontEnd и установите используемые зависимости
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install
+```
+2. Создайте файл .env со следующим содержимым (где значением будет ваш BackEnd URL):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+REACT_APP_SERVER_URL = http://localhost:8000
+```
+3. Для запуска сервера используйте следующую команду:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm run start
+```
 
-### `npm run eject`
+## Важно!
+- Данный проект был создан в учебных целях. 
+- Для полноценной работы проекта необходимо установить [BackEnd].
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [ReactJS]: <https://ru.reactjs.org>
+   [MobX]: <https://mobx.js.org/README.html>
+   [BackEnd]: <https://github.com/DjReactive/FS_DIPLOM_BACKEND>

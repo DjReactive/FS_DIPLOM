@@ -1,9 +1,4 @@
 import Request from '../request'
-const path = {
-  login: '/login',
-  register: '/register',
-  logout: '/logout',
-}
 
 export default class AuthModel {
   constructor(obj) {
@@ -12,13 +7,13 @@ export default class AuthModel {
 
   async login(data, errorCallback) {
     return await this.request(
-      Request.post(this.url + path.login, data), errorCallback
+      Request.post(this.url + "/login", data), errorCallback
     );
   }
 
   async logout(token, errCallback) {
     return await this.request(
-      Request.post(this.url + path.logout, null, this._authHeader(token)), errCallback
+      Request.post(this.url + "/logout", null, this._authHeader(token)), errCallback
     );
   }
 
@@ -33,6 +28,16 @@ export default class AuthModel {
       Request.update(`${this.url}/settings/${option}`, { value, access }, 
       this._authHeader(token)), errCallback
     );
+  }
+
+  async upload(file) {
+    if (!file) return {
+        error: null
+    }
+    return await
+      Request.post(this.url, file, {
+        'Content-Type': 'multipart/form-data'
+      });
   }
 
   async request(req, clb) {

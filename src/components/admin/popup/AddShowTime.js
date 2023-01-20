@@ -19,14 +19,13 @@ export default function AddShowTime({ data: {filmId, name, duration, movies, sho
   const handleSubmit = e => {
     e.preventDefault();
   
-    //setLoad(true);
-    // API.ShowTimes.add(form)
-    //   .then((res) => {
-    //     setLoad(false);
-    //     setForm({ movie_id: filmId });
-    //     if (!res.error) popup.close(e);
-    //   });
-    console.log('добавлено!')
+    setLoad(true);
+    API.ShowTimes.add(form)
+      .then((res) => {
+        setLoad(false);
+        setForm({ movie_id: filmId });
+        if (!res.error) popup.close(e);
+      });
   }
 
   useEffect(() => {

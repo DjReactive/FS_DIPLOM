@@ -536,3 +536,34 @@ input[type='radio'], input[type='submit'], button, .conf-step__header, select {
         transition: .3s all ease; }
 
 /*# sourceMappingURL=styles.css.map */
+.conf-step__add-movie-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.conf-step__add-movie-block > div:nth-of-type(1) {
+  min-width: 140px;
+  margin: 0 5px;
+}
+
+/* add Movie image */
+.conf-step__movie-image {
+  width: 100%;
+  max-width: 180px;
+  position: relative;
+}
+.conf-step__movie-image > .block-image {
+  height: 220px;
+  border: 1px solid #000;
+}
+.conf-step__movie-image > span {
+  position: absolute;
+  top: 3px; 
+  right: 3px;
+  background: rgb(255, 255, 255);
+  padding: 2px 5px;
+  border-radius: 50%;
+}
+.conf-step__movie-image > span:hover {
+  cursor: pointer;
+}
